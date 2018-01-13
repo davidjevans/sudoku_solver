@@ -53,11 +53,17 @@ DigitRecognizer::~DigitRecognizer()
 
 bool DigitRecognizer::train(char *trainPath, char *labelsPath)
 {
-
   Mat trainingLabels = importData(labelsPath);
   Mat trainingImages = importData(trainPath);
- 
-  knn->train(trainingImages, ml::ROW_SAMPLE, trainingLabels);
+
+  if(trainingLabels.empty() || trainingImages.empty())
+  {
+    std::cout<<"Training data not loaded correctly";
+    return false;
+  }   
+
+  knn->train(trainingImages, ml::ROW_SAMPLE, trainingImages);
+  
  
   return true;
 //  //open the training data and training labels paths
@@ -140,15 +146,15 @@ Mat DigitRecognizer::importData(char *path)
 {
   Mat foi; 
 
-  FileStorage fsClassifications(path, FileStorage::READ);
+  FileStorage fs(path, FileStorage::READ);
   
-  if(fsClassifications.isOpened() == false)
+  if(fs.isOpened() == false)
   {
     std::cout<<"Error: Cannot open " << path;
     return foi;
   }
-  fsClassifications["doi"] >> foi;
-
+  fs["doi"] >> foi;
+  fs.release();
   return foi;
 }
 

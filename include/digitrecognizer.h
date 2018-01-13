@@ -28,7 +28,7 @@ private:
     
 
 private:
-    ml::KNearest    *knn;
+    Ptr<ml::KNearest> knn;
     int numRows, numCols, numImages;
 
 };
