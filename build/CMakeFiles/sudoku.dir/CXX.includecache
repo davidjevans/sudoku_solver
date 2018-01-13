@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.cpp
-digitrecognizer.h
-/home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.h
-
-/home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.h
+../include/digitrecognizer.h
 cv.h
 -
 highgui.h
@@ -21,8 +17,14 @@ opencv2/opencv.hpp
 -
 ml.h
 -
+iostream
+-
 
-/home/zeumer/Documents/fun/opencv/sudoku/sudoku.cpp
+/home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.cpp
+digitrecognizer.h
+/home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.h
+
+/home/zeumer/Documents/fun/opencv/sudoku/src/sudoku.cpp
 stdio.h
 -
 opencv2/opencv.hpp
@@ -32,7 +34,7 @@ highgui.h
 vector
 -
 digitrecognizer.h
-/home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.h
+/home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.h
 
 /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cv.h
 opencv2/core/core_c.h

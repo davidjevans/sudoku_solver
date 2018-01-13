@@ -123,59 +123,59 @@ sudoku/fast:
 	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/build
 .PHONY : sudoku/fast
 
-digitrecognizer.o: digitrecognizer.cpp.o
+src/digitrecognizer.o: src/digitrecognizer.cpp.o
 
-.PHONY : digitrecognizer.o
-
-# target to build an object file
-digitrecognizer.cpp.o:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/digitrecognizer.cpp.o
-.PHONY : digitrecognizer.cpp.o
-
-digitrecognizer.i: digitrecognizer.cpp.i
-
-.PHONY : digitrecognizer.i
-
-# target to preprocess a source file
-digitrecognizer.cpp.i:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/digitrecognizer.cpp.i
-.PHONY : digitrecognizer.cpp.i
-
-digitrecognizer.s: digitrecognizer.cpp.s
-
-.PHONY : digitrecognizer.s
-
-# target to generate assembly for a file
-digitrecognizer.cpp.s:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/digitrecognizer.cpp.s
-.PHONY : digitrecognizer.cpp.s
-
-sudoku.o: sudoku.cpp.o
-
-.PHONY : sudoku.o
+.PHONY : src/digitrecognizer.o
 
 # target to build an object file
-sudoku.cpp.o:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/sudoku.cpp.o
-.PHONY : sudoku.cpp.o
+src/digitrecognizer.cpp.o:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o
+.PHONY : src/digitrecognizer.cpp.o
 
-sudoku.i: sudoku.cpp.i
+src/digitrecognizer.i: src/digitrecognizer.cpp.i
 
-.PHONY : sudoku.i
+.PHONY : src/digitrecognizer.i
 
 # target to preprocess a source file
-sudoku.cpp.i:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/sudoku.cpp.i
-.PHONY : sudoku.cpp.i
+src/digitrecognizer.cpp.i:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.i
+.PHONY : src/digitrecognizer.cpp.i
 
-sudoku.s: sudoku.cpp.s
+src/digitrecognizer.s: src/digitrecognizer.cpp.s
 
-.PHONY : sudoku.s
+.PHONY : src/digitrecognizer.s
 
 # target to generate assembly for a file
-sudoku.cpp.s:
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/sudoku.cpp.s
-.PHONY : sudoku.cpp.s
+src/digitrecognizer.cpp.s:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s
+.PHONY : src/digitrecognizer.cpp.s
+
+src/sudoku.o: src/sudoku.cpp.o
+
+.PHONY : src/sudoku.o
+
+# target to build an object file
+src/sudoku.cpp.o:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku.cpp.o
+.PHONY : src/sudoku.cpp.o
+
+src/sudoku.i: src/sudoku.cpp.i
+
+.PHONY : src/sudoku.i
+
+# target to preprocess a source file
+src/sudoku.cpp.i:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku.cpp.i
+.PHONY : src/sudoku.cpp.i
+
+src/sudoku.s: src/sudoku.cpp.s
+
+.PHONY : src/sudoku.s
+
+# target to generate assembly for a file
+src/sudoku.cpp.s:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku.cpp.s
+.PHONY : src/sudoku.cpp.s
 
 # Help Target
 help:
@@ -186,12 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sudoku"
-	@echo "... digitrecognizer.o"
-	@echo "... digitrecognizer.i"
-	@echo "... digitrecognizer.s"
-	@echo "... sudoku.o"
-	@echo "... sudoku.i"
-	@echo "... sudoku.s"
+	@echo "... src/digitrecognizer.o"
+	@echo "... src/digitrecognizer.i"
+	@echo "... src/digitrecognizer.s"
+	@echo "... src/sudoku.o"
+	@echo "... src/sudoku.i"
+	@echo "... src/sudoku.s"
 .PHONY : help
 
 

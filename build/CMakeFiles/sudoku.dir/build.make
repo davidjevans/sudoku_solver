@@ -57,64 +57,64 @@ include CMakeFiles/sudoku.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/sudoku.dir/flags.make
 
-CMakeFiles/sudoku.dir/sudoku.cpp.o: CMakeFiles/sudoku.dir/flags.make
-CMakeFiles/sudoku.dir/sudoku.cpp.o: ../sudoku.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sudoku.dir/sudoku.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudoku.dir/sudoku.cpp.o -c /home/zeumer/Documents/fun/opencv/sudoku/sudoku.cpp
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o: CMakeFiles/sudoku.dir/flags.make
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o: ../src/sudoku.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sudoku.dir/src/sudoku.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudoku.dir/src/sudoku.cpp.o -c /home/zeumer/Documents/fun/opencv/sudoku/src/sudoku.cpp
 
-CMakeFiles/sudoku.dir/sudoku.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku.dir/sudoku.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeumer/Documents/fun/opencv/sudoku/sudoku.cpp > CMakeFiles/sudoku.dir/sudoku.cpp.i
+CMakeFiles/sudoku.dir/src/sudoku.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku.dir/src/sudoku.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeumer/Documents/fun/opencv/sudoku/src/sudoku.cpp > CMakeFiles/sudoku.dir/src/sudoku.cpp.i
 
-CMakeFiles/sudoku.dir/sudoku.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku.dir/sudoku.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeumer/Documents/fun/opencv/sudoku/sudoku.cpp -o CMakeFiles/sudoku.dir/sudoku.cpp.s
+CMakeFiles/sudoku.dir/src/sudoku.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku.dir/src/sudoku.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeumer/Documents/fun/opencv/sudoku/src/sudoku.cpp -o CMakeFiles/sudoku.dir/src/sudoku.cpp.s
 
-CMakeFiles/sudoku.dir/sudoku.cpp.o.requires:
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o.requires:
 
-.PHONY : CMakeFiles/sudoku.dir/sudoku.cpp.o.requires
+.PHONY : CMakeFiles/sudoku.dir/src/sudoku.cpp.o.requires
 
-CMakeFiles/sudoku.dir/sudoku.cpp.o.provides: CMakeFiles/sudoku.dir/sudoku.cpp.o.requires
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/sudoku.cpp.o.provides.build
-.PHONY : CMakeFiles/sudoku.dir/sudoku.cpp.o.provides
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o.provides: CMakeFiles/sudoku.dir/src/sudoku.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/sudoku.cpp.o.provides.build
+.PHONY : CMakeFiles/sudoku.dir/src/sudoku.cpp.o.provides
 
-CMakeFiles/sudoku.dir/sudoku.cpp.o.provides.build: CMakeFiles/sudoku.dir/sudoku.cpp.o
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o.provides.build: CMakeFiles/sudoku.dir/src/sudoku.cpp.o
 
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.o: CMakeFiles/sudoku.dir/flags.make
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.o: ../digitrecognizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sudoku.dir/digitrecognizer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudoku.dir/digitrecognizer.cpp.o -c /home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.cpp
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o: CMakeFiles/sudoku.dir/flags.make
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o: ../src/digitrecognizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o -c /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.cpp
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku.dir/digitrecognizer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.cpp > CMakeFiles/sudoku.dir/digitrecognizer.cpp.i
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.cpp > CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.i
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku.dir/digitrecognizer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer.cpp -o CMakeFiles/sudoku.dir/digitrecognizer.cpp.s
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.cpp -o CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.requires:
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.requires:
 
-.PHONY : CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.requires
+.PHONY : CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.requires
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.provides: CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.requires
-	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.provides.build
-.PHONY : CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.provides
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.provides: CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.requires
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.provides.build
+.PHONY : CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.provides
 
-CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.provides.build: CMakeFiles/sudoku.dir/digitrecognizer.cpp.o
+CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.provides.build: CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o
 
 
 # Object files for target sudoku
 sudoku_OBJECTS = \
-"CMakeFiles/sudoku.dir/sudoku.cpp.o" \
-"CMakeFiles/sudoku.dir/digitrecognizer.cpp.o"
+"CMakeFiles/sudoku.dir/src/sudoku.cpp.o" \
+"CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o"
 
 # External object files for target sudoku
 sudoku_EXTERNAL_OBJECTS =
 
-sudoku: CMakeFiles/sudoku.dir/sudoku.cpp.o
-sudoku: CMakeFiles/sudoku.dir/digitrecognizer.cpp.o
+sudoku: CMakeFiles/sudoku.dir/src/sudoku.cpp.o
+sudoku: CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o
 sudoku: CMakeFiles/sudoku.dir/build.make
 sudoku: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
 sudoku: /opt/ros/kinetic/lib/libopencv_superres3.so.3.2.0
@@ -167,8 +167,8 @@ CMakeFiles/sudoku.dir/build: sudoku
 
 .PHONY : CMakeFiles/sudoku.dir/build
 
-CMakeFiles/sudoku.dir/requires: CMakeFiles/sudoku.dir/sudoku.cpp.o.requires
-CMakeFiles/sudoku.dir/requires: CMakeFiles/sudoku.dir/digitrecognizer.cpp.o.requires
+CMakeFiles/sudoku.dir/requires: CMakeFiles/sudoku.dir/src/sudoku.cpp.o.requires
+CMakeFiles/sudoku.dir/requires: CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o.requires
 
 .PHONY : CMakeFiles/sudoku.dir/requires
 

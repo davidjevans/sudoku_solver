@@ -93,7 +93,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Sudoku
+CMAKE_PROJECT_NAME:STATIC=sudoku
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -138,6 +138,9 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Dependencies for target
+DigitRecognizer_LIB_DEPENDS:STATIC=
+
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/opt/ros/kinetic/share/OpenCV-3.2.0-dev
 
@@ -146,6 +149,24 @@ Sudoku_BINARY_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku/build
 
 //Value Computed by CMake
 Sudoku_SOURCE_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku
+
+//Dependencies for target
+digitrecognizer.cpp_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+digitrecognizer_BINARY_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku/build/digitrecognizer
+
+//Dependencies for target
+digitrecognizer_LIB_DEPENDS:STATIC=
+
+//Value Computed by CMake
+digitrecognizer_SOURCE_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku/digitrecognizer
+
+//Value Computed by CMake
+sudoku_BINARY_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku/build
+
+//Value Computed by CMake
+sudoku_SOURCE_DIR:STATIC=/home/zeumer/Documents/fun/opencv/sudoku
 
 
 ########################
