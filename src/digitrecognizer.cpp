@@ -62,85 +62,46 @@ bool DigitRecognizer::train(char *trainPath, char *labelsPath)
     return false;
   }   
 
-  knn->train(trainingImages, ml::ROW_SAMPLE, trainingImages);
+  knn->train(trainingImages, ml::ROW_SAMPLE, trainingLabels);
   
  
   return true;
-//  //open the training data and training labels paths
-//  FILE *fp = fopen(trainPath, "rb");
-//  FILE *fp2 = fopen(labelsPath, "rb");
-//
-//  //only advance if both paths opened
-//  if(!fp || !fp2)
-//    return false;
-//
-//  //Read bytes in flipped order
-//  //order of MNIST dataset is 
-//  //  magic number (4 bytes)
-//  //  number of images (4 bytes)
-//  //  number of pixel rows in image (4 bytes)
-//  //  number of pizel columns in image (4 bytes)
-//  int magicNumber = readFlippedInteger(fp);
-//  numImages = readFlippedInteger(fp);
-//  numRows = readFlippedInteger(fp);
-//  numCols = readFlippedInteger(fp);
-//
-//  fseek(fp2, 0x08, SEEK_SET);
-//
-//  if(numImages > MAX_NUM_IMAGES) numImages = MAX_NUM_IMAGES;
-//
-//  ///////////////////////////////////////////////////////////
-//  //Create a list of the training images and training labels to train on
-//  //traininingVectors: list of images
-//  //trainingLabels: list of labels
-//  int size = numRows*numCols;
-//
-//  CvMat *trainingVectors = cvCreateMat(numImages, size, CV_32FC1);
-//
-//  CvMat *trainingClasses = cvCreateMat(numImages, 1, CV_32FC1);
-//
-//  memset(trainingClasses->data.ptr, 0, sizeof(float)*numImages);
-//
-//  char *temp = new char[size];
-//  char tempClass = 0;
-//
-//  for(int i = 0; i < numImages; i++)
-//  {
-//    fread((void*)temp, size, 1, fp);
-//    fread((void*)(&tempClass), sizeof(char), 1, fp2);
-//
-//    trainingClasses->data.fl[i] = tempClass;
-//
-//    for(int k=0; k<size; k++)
-//    {
-//       trainingVectors->data.fl[i*size+k] = temp[k];
-//    }
-//
-//  }
-//
-//  //train the openCV knn classifier with the images and labels
-//  knn->train(trainingVectors, trainingClasses);
-//  fclose(fp);
-//  fclose(fp2);
-//
-//  return true;
+
 }
+
+/*
+  classify: Given an image, classify the image as an integer
+ 
+  params;
+    img- openCV matrix image to be classified
+
+  returns:
+    integer the matrix is classified as
+*/
 //
-///*
-//  classify: Given an image, classify the image as an integer
-// 
-//  params;
-//    img- openCV matrix image to be classified
-//
-//  returns:
-//    integer the matrix is classified as
-//*/
-//
-//int DigitRecognizer::classify(cv::Mat img)
-//{
-//  Mat cloneImg = preprocessImage(img);
-//  return knn->find_nearest(Mat_<float>(cloneImg), 1);
-//}
+int DigitRecognizer::classify(cv::Mat img)
+{
+  //Mat cloneImg = preprocessImage(img);
+  Mat cloneImg;
+  resize(img, cloneImg, Size(100,100));
+
+  Mat cloneImgFloat;
+  cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
+
+  Mat cloneImgFloatFlat;
+  cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
+
+  Mat matValue(0, 0, CV_32F);  
+
+  knn->findNearest(cloneImgFloatFlat, 1, matValue);
+  
+  float fltValue = (float)matValue.at<float>(0, 0);
+  std::cout << char(int(fltValue));
+}
+
+
+
+
 
 Mat DigitRecognizer::importData(char *path)
 {

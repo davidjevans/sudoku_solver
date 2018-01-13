@@ -535,14 +535,13 @@ int main()
   
       if(area >croppedCurrentCell.rows*croppedCurrentCell.cols*.2)
       {
-        int number = 1;
-        //classify number here
-        printf("1");
+        int value = dr->classify(currentCell);
+//        printf("%d", value);
         imshow("window", croppedCurrentCell);
       }
       else
       {
-        printf("0");
+//        printf("0");
       }
     }
 
