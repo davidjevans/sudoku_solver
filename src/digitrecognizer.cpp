@@ -3,7 +3,8 @@
 DigitRecognizer::DigitRecognizer()
 {
   knn = ml::KNearest::create();
-
+  numRows = 50;
+  numCols = 50;
 
 }
 
@@ -81,22 +82,22 @@ bool DigitRecognizer::train(char *trainPath, char *labelsPath)
 //
 int DigitRecognizer::classify(cv::Mat img)
 {
-  //Mat cloneImg = preprocessImage(img);
-  Mat cloneImg;
-  resize(img, cloneImg, Size(100,100));
+ Mat cloneImg;
 
-  Mat cloneImgFloat;
-  cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
+// resize(img, cloneImg, Size(100,100));
+// cloneImg.convertTo(cloneImg, CV_32FC1);  
+//
+// cloneImg = cloneImg.reshape(1, 1);
 
-  Mat cloneImgFloatFlat;
-  cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
-
-  Mat matValue(0, 0, CV_32F);  
-
-  knn->findNearest(cloneImgFloatFlat, 1, matValue);
-  
-  float fltValue = (float)matValue.at<float>(0, 0);
-  std::cout << char(int(fltValue));
+ cloneImg = preprocessImage(img);
+ Mat matValue(0, 0, CV_32F);  
+ 
+ knn->findNearest(cloneImg, 1, matValue);
+ 
+ float fltValue = (float)matValue.at<float>(0, 0);
+ char value = char(fltValue);
+ std::cout << value;
+ return 0;
 }
 
 
@@ -119,105 +120,60 @@ Mat DigitRecognizer::importData(char *path)
   return foi;
 }
 
-//
-///*
-//  preprocessImage: using KNN on raw image doesn't provide accurate classification results
-//                  Instead we will center the digit to be similar to the MNIST dataset
-//
-//  params:
-//    img- openCV matrix image to be preprocessed before being classified
-//
-//  returns:
-//    img- openCV matrix centered ready to be classified
-//*/
-//
-//Mat DigitRecognizer::preprocessImage(Mat img)
-//{
-//  int rowTop = -1, rowBottom= -1, colLeft=-1, colRight=-1;
-//
-//  Mat temp;
-//  int thresholdBottom = 50;
-//  int thresholdTop = 50;
-//  int thresholdLeft = 50;
-//  int thresholdRight = 50;
-//  int center = img.rows/2;
-//
-//  for(int i = center; i<img.rows; i++)
-//  {
-//    if(rowBottom==-1)
-//    {
-//      temp = img.row(i);
-//      IplImage stub = temp;
-//      if(cvSum(&stub).val[0] < thresholdBottom || i==img.rows-1)
-//      {
-//        rowBottom = i;
-//      }
-//    }
-//    
-//    if(rowTop==-1)
-//    {
-//      temp = img.row(img.rows-i);
-//      IplImage stub = temp;
-//      if(cvSum(&stub).val[0] < thresholdTop || i==img.rows-1)
-//      {
-//        rowTop = img.rows-i;
-//      }
-//    }
-// 
-//   if(colRight==-1)
-//    {
-//      temp = img.col(i);
-//      IplImage stub = temp;
-//      if(cvSum(&stub).val[0] < thresholdRight || i==img.cols-1)
-//      {
-//        colRight = i;
-//      }
-//    }
-//
-//   
-//    if(colLeft==-1)
-//    {
-//      temp = img.col(img.cols-i);
-//      IplImage stub = temp;
-//      if(cvSum(&stub).val[0] < thresholdLeft || i==img.cols-1)
-//      {
-//        colLeft = img.cols-i;
-//      }
-//    }
-//
-//  }
-//
-//  Mat newImg;
-//  
-//  newImg = newImg.zeros(img.rows, img.cols, CV_8UC1);
-//
-//  int startAtX = (newImg.cols/2)-(colRight-colLeft)/2;
-//  int startAtY = (newImg.rows/2)-(rowBottom-rowTop)/2;
-//
-//  for(int y=startAtY; y<(newImg.rows/2)+(rowBottom-rowTop)/2; y++)
-//  {
-//    
-//    uchar *ptr = newImg.ptr<uchar>(y);
-//
-//    for(int x=startAtX; x<(newImg.cols/2)+(colRight-colLeft)/2; x++)
-//    {
-//      ptr[x] = img.at<uchar>(rowTop + (y-startAtY), colLeft+(x-startAtX));
-//    }
-//  }
-//
-//  Mat cloneImg = Mat(numRows, numCols, CV_8UC1);
-//
-//  resize(newImg, cloneImg, Size(numCols, numRows));
-//  
-//  for(int i=0; i<cloneImg.rows; i++)
-//  {
-//    floodFill(cloneImg, cvPoint(0, i), cvScalar(0,0,0));
-//    floodFill(cloneImg, cvPoint(cloneImg.cols-1, i), cvScalar(0,0,0));
-//
-//    floodFill(cloneImg, cvPoint(i, 0), cvScalar(0));
-//    floodFill(cloneImg, cvPoint(i, cloneImg.rows-1), cvScalar(0));
-//  }
-//  
-//  cloneImg = cloneImg.reshape(1, 1);
-//  return cloneImg;
-//}
+
+/*
+  preprocessImage: using KNN on raw image doesn't provide accurate classification results
+                  Instead we will center the digit to be similar to the MNIST dataset
+
+  params:
+    img- openCV matrix image to be preprocessed before being classified
+
+  returns:
+    img- openCV matrix centered ready to be classified
+*/
+
+Mat DigitRecognizer::preprocessImage(Mat img)
+{
+
+  std::vector<std::vector<cv::Point> > ptContours;        // declare contours vector
+
+  findContours(img, ptContours, RETR_LIST, CHAIN_APPROX_SIMPLE);           
+
+  Moments m = cv::moments(img, true);
+  int area = m.m00;
+
+  int MIN_CONTOUR_AREA = ceil(area*.6);
+  int MAX_CONTOUR_AREA = ceil(img.rows*img.cols*.75);
+
+
+  for (int i = 0; i < ptContours.size(); i++) {                           // for each contour
+        
+    Rect boundingRect = cv::boundingRect(ptContours[i]);
+    
+    int rectArea = boundingRect.width*boundingRect.height;
+
+    if (rectArea > MIN_CONTOUR_AREA && rectArea < MAX_CONTOUR_AREA) 
+    {
+      
+      Mat cloneImg;
+      
+      Rect boundingRect = cv::boundingRect(ptContours[i]);
+      
+      Mat boundedRect = img(boundingRect);
+
+      resize(boundedRect, cloneImg, Size(numCols, numRows));
+      
+      imshow("window", cloneImg);
+      int intChar = cv::waitKey(0);           // get key press
+  
+      Mat cloneImgFloat;
+      cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
+    
+      Mat cloneImgFloatFlat;
+      cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
+      return cloneImgFloatFlat;
+     }
+  }
+
+  return img;
+}

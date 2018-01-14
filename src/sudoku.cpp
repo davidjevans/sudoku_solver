@@ -537,7 +537,7 @@ int main()
       {
         int value = dr->classify(currentCell);
 //        printf("%d", value);
-        imshow("window", croppedCurrentCell);
+//        imshow("window", croppedCurrentCell);
       }
       else
       {
