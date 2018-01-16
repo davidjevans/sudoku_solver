@@ -221,7 +221,7 @@ int main()
 {
 
 	//read in the sudoku image
-	Mat original = imread("../sudoku3.png", 0);
+	Mat original = imread("../sudoku.jpg", 0);
 	//create an outer box container the same size as the sudoku image
 	Mat outerBox = Mat(original.size(), CV_8UC1);
 	Mat sudoku = Mat(original.size(), CV_8UC1);
@@ -529,24 +529,10 @@ int main()
 
 
       int value = dr->classify(currentCell);
-      
-      Rect interestRegion(border, border, dist-2*border, dist-2*border);
-      Mat croppedCurrentCell = currentCell(interestRegion);
-      Moments m = cv::moments(croppedCurrentCell, true);
-      int area = m.m00;
-  
-      if(area >croppedCurrentCell.rows*croppedCurrentCell.cols*.2)
-      {
-//        printf("%d", value);
-//        imshow("window", croppedCurrentCell);
-      }
-      else
-      {
-//        printf("0");
-      }
+      printf("%d", value);
     }
 
-//    printf("\n");
+    printf("\n");
   }
 
 	/////////////////////////////////////////////////////////////////////////////
