@@ -90,14 +90,19 @@ int DigitRecognizer::classify(cv::Mat img)
 // cloneImg = cloneImg.reshape(1, 1);
 
  cloneImg = preprocessImage(img);
- Mat matValue(0, 0, CV_32F);  
+
+  if(!cloneImg.empty())
+  {
+    Mat matValue(0, 0, CV_32F);  
+
+    std::cout<<cloneImg.rows << "," <<cloneImg.cols<<std::endl; 
+    knn->findNearest(cloneImg, 1, matValue);
  
- knn->findNearest(cloneImg, 1, matValue);
- 
- float fltValue = (float)matValue.at<float>(0, 0);
- char value = char(fltValue);
- std::cout << value;
- return 0;
+    float fltValue = (float)matValue.at<float>(0, 0);
+    char value = char(fltValue);
+    std::cout << value;
+    return 0;
+  }
 }
 
 
@@ -141,9 +146,10 @@ Mat DigitRecognizer::preprocessImage(Mat img)
 
   Moments m = cv::moments(img, true);
   int area = m.m00;
+  int imgArea = img.rows*img.cols;
 
-  int MIN_CONTOUR_AREA = ceil(area*.6);
-  int MAX_CONTOUR_AREA = ceil(img.rows*img.cols*.75);
+  int MIN_CONTOUR_AREA = ceil(imgArea*.13);
+  int MAX_CONTOUR_AREA = ceil(imgArea*.4);
 
 
   for (int i = 0; i < ptContours.size(); i++) {                           // for each contour
@@ -157,12 +163,11 @@ Mat DigitRecognizer::preprocessImage(Mat img)
       
       Mat cloneImg;
       
-      Rect boundingRect = cv::boundingRect(ptContours[i]);
-      
       Mat boundedRect = img(boundingRect);
 
       resize(boundedRect, cloneImg, Size(numCols, numRows));
       
+      std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
       imshow("window", cloneImg);
       int intChar = cv::waitKey(0);           // get key press
   
@@ -171,9 +176,11 @@ Mat DigitRecognizer::preprocessImage(Mat img)
     
       Mat cloneImgFloatFlat;
       cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
-      return cloneImgFloatFlat;
+//      return cloneImgFloatFlat;
      }
   }
+  
+  Mat emptyImg;
 
-  return img;
+  return emptyImg;
 }
