@@ -84,25 +84,19 @@ int DigitRecognizer::classify(cv::Mat img)
 {
  Mat cloneImg;
 
-// resize(img, cloneImg, Size(100,100));
-// cloneImg.convertTo(cloneImg, CV_32FC1);  
-//
-// cloneImg = cloneImg.reshape(1, 1);
-
  cloneImg = preprocessImage(img);
 
   if(!cloneImg.empty())
   {
     Mat matValue(0, 0, CV_32F);  
 
-    std::cout<<cloneImg.rows << "," <<cloneImg.cols<<std::endl; 
     knn->findNearest(cloneImg, 1, matValue);
  
-    float fltValue = (float)matValue.at<float>(0, 0);
-    char value = char(fltValue);
-    std::cout << value;
-    return 0;
+    float value = (float)matValue.at<float>(0, 0);
+    
+    return value - 48;
   }
+  return 0;
 }
 
 
@@ -167,16 +161,16 @@ Mat DigitRecognizer::preprocessImage(Mat img)
 
       resize(boundedRect, cloneImg, Size(numCols, numRows));
       
-      std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
-      imshow("window", cloneImg);
-      int intChar = cv::waitKey(0);           // get key press
+     // std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
+//      imshow("window", cloneImg);
+//      int intChar = cv::waitKey(0);           // get key press
   
       Mat cloneImgFloat;
       cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
     
       Mat cloneImgFloatFlat;
       cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
-//      return cloneImgFloatFlat;
+      return cloneImgFloatFlat;
      }
   }
   
