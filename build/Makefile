@@ -150,6 +150,33 @@ src/digitrecognizer.cpp.s:
 	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s
 .PHONY : src/digitrecognizer.cpp.s
 
+src/solver.o: src/solver.cpp.o
+
+.PHONY : src/solver.o
+
+# target to build an object file
+src/solver.cpp.o:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/solver.cpp.o
+.PHONY : src/solver.cpp.o
+
+src/solver.i: src/solver.cpp.i
+
+.PHONY : src/solver.i
+
+# target to preprocess a source file
+src/solver.cpp.i:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/solver.cpp.i
+.PHONY : src/solver.cpp.i
+
+src/solver.s: src/solver.cpp.s
+
+.PHONY : src/solver.s
+
+# target to generate assembly for a file
+src/solver.cpp.s:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/solver.cpp.s
+.PHONY : src/solver.cpp.s
+
 src/sudoku.o: src/sudoku.cpp.o
 
 .PHONY : src/sudoku.o
@@ -189,6 +216,9 @@ help:
 	@echo "... src/digitrecognizer.o"
 	@echo "... src/digitrecognizer.i"
 	@echo "... src/digitrecognizer.s"
+	@echo "... src/solver.o"
+	@echo "... src/solver.i"
+	@echo "... src/solver.s"
 	@echo "... src/sudoku.o"
 	@echo "... src/sudoku.i"
 	@echo "... src/sudoku.s"

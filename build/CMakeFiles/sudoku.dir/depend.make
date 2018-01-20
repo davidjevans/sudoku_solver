@@ -134,7 +134,11 @@ CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o: /opt/ros/kinetic/include/opencv
 CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/xfeatures2d/cuda.hpp
 CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv2/xfeatures2d/nonfree.hpp
 
+CMakeFiles/sudoku.dir/src/solver.cpp.o: ../include/solver.h
+CMakeFiles/sudoku.dir/src/solver.cpp.o: ../src/solver.cpp
+
 CMakeFiles/sudoku.dir/src/sudoku.cpp.o: ../include/digitrecognizer.h
+CMakeFiles/sudoku.dir/src/sudoku.cpp.o: ../include/solver.h
 CMakeFiles/sudoku.dir/src/sudoku.cpp.o: ../src/sudoku.cpp
 CMakeFiles/sudoku.dir/src/sudoku.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cv.h
 CMakeFiles/sudoku.dir/src/sudoku.cpp.o: /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cxcore.h

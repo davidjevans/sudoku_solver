@@ -12,34 +12,6 @@ DigitRecognizer::~DigitRecognizer()
 {
   delete knn;
 }
-//
-///*
-//  readFlippedInteger: Reads an integer in reverse bit order
-//
-//  *Intel processors read a different "endian" format from the MNIST dataset.
-//    This means in order to read an integer in the MNIST dataset, you must flp the order of the bits  
-//
-//  params:
-//    fp is the file with the integer to be flipped
-//
-//  return:
-//    the integer value of the flipped bits
-//*/
-//int DigitRecognizer::readFlippedInteger(FILE *fp)
-//{
-//  int ret = 0;
-//  
-//  char *temp;
-//
-//  temp = (char*)(&ret);
-//  
-//  fread(&temp[3], sizeof(char), 1, fp);
-//  fread(&temp[2], sizeof(char), 1, fp);
-//  fread(&temp[1], sizeof(char), 1, fp);
-//  fread(&temp[0], sizeof(char), 1, fp);
-//
-//  return ret;
-//}
 
 /*
   train: reads in the MNIST images and labels to train the OpenCV KNN classifier
@@ -138,40 +110,51 @@ Mat DigitRecognizer::preprocessImage(Mat img)
 
   findContours(img, ptContours, RETR_LIST, CHAIN_APPROX_SIMPLE);           
 
-  Moments m = cv::moments(img, true);
-  int area = m.m00;
   int imgArea = img.rows*img.cols;
 
   int MIN_CONTOUR_AREA = ceil(imgArea*.13);
   int MAX_CONTOUR_AREA = ceil(imgArea*.4);
+  int MIN_WHITE_AREA = ceil(imgArea*.14);
 
+  float cropPercent = .05;
+  int tbBoundary = ceil(img.rows*cropPercent);
+  int lrBoundary = ceil(img.cols*cropPercent);
 
-  for (int i = 0; i < ptContours.size(); i++) {                           // for each contour
-        
-    Rect boundingRect = cv::boundingRect(ptContours[i]);
-    
-    int rectArea = boundingRect.width*boundingRect.height;
-
-    if (rectArea > MIN_CONTOUR_AREA && rectArea < MAX_CONTOUR_AREA) 
-    {
-      
-      Mat cloneImg;
-      
-      Mat boundedRect = img(boundingRect);
-
-      resize(boundedRect, cloneImg, Size(numCols, numRows));
-      
-     // std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
-//      imshow("window", cloneImg);
-//      int intChar = cv::waitKey(0);           // get key press
+  Rect cropRegion(lrBoundary/2, tbBoundary/2, img.cols-lrBoundary, img.rows-tbBoundary);
   
-      Mat cloneImgFloat;
-      cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
+  Mat croppedImg = img(cropRegion);
+  Moments m = moments(croppedImg, true);
+  int whitePixelArea = m.m00;
+
+//  std::cout << "Area:" << whitePixelArea << std::endl;
+  if (whitePixelArea > MIN_WHITE_AREA){
+    for (int i = 0; i < ptContours.size(); i++) {                           // for each contour
+          
+      Rect boundingRect = cv::boundingRect(ptContours[i]);
+      
+      int rectArea = boundingRect.width*boundingRect.height;
+
+      if (rectArea > MIN_CONTOUR_AREA && rectArea < MAX_CONTOUR_AREA) 
+      {
+        
+        Mat cloneImg;
+        
+        Mat boundedRect = img(boundingRect);
+
+        resize(boundedRect, cloneImg, Size(numCols, numRows));
+        
+       // std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
+  //      imshow("window", cloneImg);
+  //      int intChar = cv::waitKey(0);           // get key press
     
-      Mat cloneImgFloatFlat;
-      cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
-      return cloneImgFloatFlat;
-     }
+        Mat cloneImgFloat;
+        cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
+      
+        Mat cloneImgFloatFlat;
+        cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
+        return cloneImgFloatFlat;
+      }
+    }
   }
   
   Mat emptyImg;

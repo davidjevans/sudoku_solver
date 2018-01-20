@@ -20,9 +20,21 @@ ml.h
 iostream
 -
 
+../include/solver.h
+stdio.h
+-
+vector
+-
+iostream
+-
+
 /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.cpp
 digitrecognizer.h
 /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.h
+
+/home/zeumer/Documents/fun/opencv/sudoku/src/solver.cpp
+solver.h
+/home/zeumer/Documents/fun/opencv/sudoku/src/solver.h
 
 /home/zeumer/Documents/fun/opencv/sudoku/src/sudoku.cpp
 stdio.h
@@ -35,6 +47,8 @@ vector
 -
 digitrecognizer.h
 /home/zeumer/Documents/fun/opencv/sudoku/src/digitrecognizer.h
+solver.h
+/home/zeumer/Documents/fun/opencv/sudoku/src/solver.h
 
 /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv/cv.h
 opencv2/core/core_c.h
