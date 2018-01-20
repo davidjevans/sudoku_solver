@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "digitrecognizer.h"
+#include "solver.h"
 
 using namespace cv;
 using namespace std;
@@ -510,9 +511,11 @@ int main()
     }
 
   int dist = ceil((double)maxLength/9);
-  int border = 10;
   Mat currentCell = Mat(dist, dist, CV_8UC1);
-    
+  
+
+  vector<vector<int>> puzzle(9, vector<int>(9, 0));
+
   for(int j=0; j<9; j++)
   {
     for(int i=0; i<9; i++)
@@ -529,17 +532,34 @@ int main()
 
 
       int value = dr->classify(currentCell);
-      printf("%d", value);
+      puzzle[i][j] = value;//  printf("%d", value);
     }
 
-    printf("\n");
+   // printf("\n");
   }
 
 	/////////////////////////////////////////////////////////////////////////////
 	namedWindow("Display window", WINDOW_AUTOSIZE);
-  printf("test");
 	imshow("Display window", undistortedThreshed);
-	
+
+//  vector<int> puzzle = {1, 3, 4, 5};
+//  vector<vector<int>> puzzle = {{1, 2, 4, 3}, {4, 3, 2, 1}, {2, 1, 3, 4}, {3, 4, 1, 2}};
+
+  Solver *ss = new Solver();
+
+  bool test = ss->violation(puzzle, 6, 0, 2);
+  
+  bool solved  = ss->solve(puzzle);
+  cout << solved << endl;
+  for(int j=0; j<9; j++)
+  {
+    for(int i=0; i<9; i++)
+    {
+      printf("%d", puzzle[i][j]);
+    }
+    printf("\n");
+  }
+
 	waitKey(0);
 	return 0;
 
