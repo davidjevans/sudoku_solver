@@ -1,10 +1,8 @@
 #include "solver.h"
 
-Solver::Solver()
-{
- //No initialization needed 
-}
 
+namespace ss
+{
 /*
   solve: takes in an unsolved puzzle and attempts to recursively solve the puzzle.
 
@@ -15,7 +13,7 @@ Solver::Solver()
     true if the puzzle was solved
     false if the puzzle was not solved
 */
-bool Solver::solve(std::vector<std::vector<int>> &puzzle)
+bool solve(std::vector<std::vector<int>> &puzzle)
 {
 
   if(complete(puzzle))
@@ -65,7 +63,7 @@ bool Solver::solve(std::vector<std::vector<int>> &puzzle)
     true if puzzle is complete
     false if puzzle still has unsolved spaces
 */
-bool  Solver::complete(std::vector<std::vector<int>> puzzle)
+bool complete(std::vector<std::vector<int>> puzzle)
 {
   for(int i = 0; i < 9; i++)
   {
@@ -95,7 +93,7 @@ bool  Solver::complete(std::vector<std::vector<int>> puzzle)
     true if there is a violation
     false if there is no violation
 */
-bool Solver::violation(std::vector<std::vector<int>> puzzle, int newValue, int locX, int locY)
+bool violation(std::vector<std::vector<int>> puzzle, int newValue, int locX, int locY)
 {
 
   for(int i = 0; i < puzzle[0].size(); i++)
@@ -137,4 +135,4 @@ bool Solver::violation(std::vector<std::vector<int>> puzzle, int newValue, int l
 
   return false;
 }
-
+}

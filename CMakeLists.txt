@@ -4,7 +4,7 @@ project( sudoku )
 find_package( OpenCV REQUIRED)
 
 include_directories(include)
-set(SOURCES src/sudoku.cpp src/digitrecognizer.cpp src/solver.cpp)
+set(SOURCES src/sudoku.cpp src/digitrecognizer.cpp src/solver.cpp src/griddetector.cpp)
 
 add_executable(sudoku ${SOURCES})
 
