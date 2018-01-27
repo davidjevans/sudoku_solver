@@ -14,11 +14,11 @@ int main()
 {
 
 	//read in the sudoku image
-	Mat original = imread("../sudoku.jpg", 0);
+	Mat original = imread("../sudoku2.png", 0);
 
 	//create an outer box container the same size as the sudoku image
 	Mat outerBox = Mat(original.size(), CV_8UC1);
-	Mat sudoku = Mat(original.size(), CV_8UC1);
+	Mat blurred = Mat(original.size(), CV_8UC1);
 
 	//return error if sudoku image not found
 	if (!original.data)
@@ -26,16 +26,28 @@ int main()
 		printf("No image data \n");
 		return -1;
 	}
+ 	namedWindow("Display window", WINDOW_AUTOSIZE);
+  imshow("Display window", original);
+	waitKey(0);
+
 
 	//PREPROCESSING//////////////////////////////////////////
 	//Gaussian blur to smooth the image to make grid line extraction easier
-	GaussianBlur(original, sudoku, Size(11,11), 0);
+	GaussianBlur(original, blurred, Size(11,11), 0);
+ 	namedWindow("Display window", WINDOW_AUTOSIZE);
+  imshow("Display window", blurred);
+	waitKey(0);
+
 
 	//Adaptive threshold used to achieve more accurate threshold by setting threshold as mean level in 5x5 pixel window
-	adaptiveThreshold(sudoku, outerBox, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 5, 2);
+	adaptiveThreshold(blurred, outerBox, 255, ADAPTIVE_THRESH_MEAN_C, THRESH_BINARY, 5, 2);
 
 	//invert the threshold image to set areas of interest to white
 	bitwise_not(outerBox, outerBox);
+ 	namedWindow("Display window", WINDOW_AUTOSIZE);
+  imshow("Display window", outerBox);
+	waitKey(0);
+
 
 	//Dilate the image to smooth any discontinuities on lines caused by thresholding operation
 	Mat kernel = (Mat_<uchar>(3,3) <<0,1,0,1,1,1,0,1,0);
@@ -46,7 +58,11 @@ int main()
 
   //Erode the image to counter the previous dilate operation
 	erode(outerBox, outerBox, kernel);
-	////////////////////////////////////////////////////////////////////////////
+	namedWindow("Display window", WINDOW_AUTOSIZE);
+  imshow("Display window", outerBox);
+	waitKey(0);
+
+////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -58,7 +74,7 @@ int main()
 	HoughLines(outerBox, lines, 1, CV_PI/180, 200);
 
 	//merge similar lines together
-	gd::mergeRelatedLines(&lines, sudoku);
+	gd::mergeRelatedLines(&lines, blurred);
 
 	for(int i=0; i<lines.size(); i++)
 	{
@@ -75,7 +91,12 @@ int main()
    
   Mat undistortedThreshed = undistorted.clone();
   adaptiveThreshold(undistorted, undistortedThreshed, 255, CV_ADAPTIVE_THRESH_GAUSSIAN_C, CV_THRESH_BINARY_INV, 101, 1);
-  ////////////////////////////////////////////////////////////////////////////////
+  
+  namedWindow("Display window", WINDOW_AUTOSIZE);
+  imshow("Display window", undistortedThreshed);
+	waitKey(0);
+
+////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -148,9 +169,8 @@ int main()
 
  	namedWindow("Display window", WINDOW_AUTOSIZE);
   imshow("Display window", original);
-
-
 	waitKey(0);
+
 	return 0;
 
 

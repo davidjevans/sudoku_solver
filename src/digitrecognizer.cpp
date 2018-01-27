@@ -54,9 +54,9 @@ bool DigitRecognizer::train(char *trainPath, char *labelsPath)
 //
 int DigitRecognizer::classify(cv::Mat img)
 {
- Mat cloneImg;
+  Mat cloneImg;
 
- cloneImg = preprocessImage(img);
+  cloneImg = preprocessImage(img);
 
   if(!cloneImg.empty())
   {
@@ -143,13 +143,13 @@ Mat DigitRecognizer::preprocessImage(Mat img)
 
         resize(boundedRect, cloneImg, Size(numCols, numRows));
         
-       // std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
-       // imshow("window", cloneImg);
-       // int intChar = cv::waitKey(0);           // get key press
-    
+        namedWindow("Display window", WINDOW_AUTOSIZE);
+        imshow("Display window", cloneImg);
+        waitKey(0);
+
         Mat cloneImgFloat;
         cloneImg.convertTo(cloneImgFloat, CV_32FC1); 
-      
+              
         Mat cloneImgFloatFlat;
         cloneImgFloatFlat = cloneImgFloat.reshape(1, 1);
         return cloneImgFloatFlat;
