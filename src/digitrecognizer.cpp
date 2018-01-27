@@ -144,8 +144,8 @@ Mat DigitRecognizer::preprocessImage(Mat img)
         resize(boundedRect, cloneImg, Size(numCols, numRows));
         
        // std::cout << imgArea <<" , " << rectArea << " , " << contourArea(ptContours[i]) << std::endl;      
-  //      imshow("window", cloneImg);
-  //      int intChar = cv::waitKey(0);           // get key press
+       // imshow("window", cloneImg);
+       // int intChar = cv::waitKey(0);           // get key press
     
         Mat cloneImgFloat;
         cloneImg.convertTo(cloneImgFloat, CV_32FC1); 

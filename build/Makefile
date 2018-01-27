@@ -150,6 +150,33 @@ src/digitrecognizer.cpp.s:
 	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/digitrecognizer.cpp.s
 .PHONY : src/digitrecognizer.cpp.s
 
+src/griddetector.o: src/griddetector.cpp.o
+
+.PHONY : src/griddetector.o
+
+# target to build an object file
+src/griddetector.cpp.o:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/griddetector.cpp.o
+.PHONY : src/griddetector.cpp.o
+
+src/griddetector.i: src/griddetector.cpp.i
+
+.PHONY : src/griddetector.i
+
+# target to preprocess a source file
+src/griddetector.cpp.i:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/griddetector.cpp.i
+.PHONY : src/griddetector.cpp.i
+
+src/griddetector.s: src/griddetector.cpp.s
+
+.PHONY : src/griddetector.s
+
+# target to generate assembly for a file
+src/griddetector.cpp.s:
+	$(MAKE) -f CMakeFiles/sudoku.dir/build.make CMakeFiles/sudoku.dir/src/griddetector.cpp.s
+.PHONY : src/griddetector.cpp.s
+
 src/solver.o: src/solver.cpp.o
 
 .PHONY : src/solver.o
@@ -216,6 +243,9 @@ help:
 	@echo "... src/digitrecognizer.o"
 	@echo "... src/digitrecognizer.i"
 	@echo "... src/digitrecognizer.s"
+	@echo "... src/griddetector.o"
+	@echo "... src/griddetector.i"
+	@echo "... src/griddetector.s"
 	@echo "... src/solver.o"
 	@echo "... src/solver.i"
 	@echo "... src/solver.s"
