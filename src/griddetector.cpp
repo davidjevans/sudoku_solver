@@ -2,6 +2,41 @@
 
 namespace gd
 {
+
+int findMaxLength(std::vector<cv::Point> points){
+
+  cv::Point ptTopLeft = points[0];
+  cv::Point ptTopRight = points[1];
+  cv::Point ptBottomRight = points[2];
+  cv::Point ptBottomLeft = points[3];
+
+  int maxLength = (ptBottomLeft.x-ptBottomRight.x)*(ptBottomLeft.x-ptBottomRight.x) + (ptBottomLeft.y-ptBottomRight.y)*(ptBottomLeft.y-ptBottomRight.y);
+  int temp = (ptTopRight.x-ptBottomRight.x)*(ptTopRight.x-ptBottomRight.x) + (ptTopRight.y-ptBottomRight.y)*(ptTopRight.y-ptBottomRight.y);
+
+  if(temp>maxLength)
+  {
+    maxLength = temp;
+  }
+
+  temp = (ptTopRight.x-ptTopLeft.x)*(ptTopRight.x-ptTopLeft.x)+(ptTopRight.y-ptTopLeft.y)*(ptTopRight.y-ptTopLeft.y);
+
+  if(temp>maxLength)
+    {
+      maxLength = temp;
+    }
+
+    temp = (ptBottomLeft.x-ptTopLeft.x)*(ptBottomLeft.x-ptTopLeft.x) + (ptBottomLeft.y-ptTopLeft.y)*(ptBottomLeft.y-ptTopLeft.y);
+
+    if(temp>maxLength)
+    {
+      maxLength = temp;
+    }
+
+    maxLength = sqrt((double)maxLength);
+
+    return maxLength;
+}
+
 /*
   findCornerPoints: finds the 4 corner points of the sudoku puzzle from the Hough transform lines
   

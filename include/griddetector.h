@@ -13,6 +13,5 @@ namespace gd
   void drawLine(cv::Vec2f line, cv::Mat &img, cv::Scalar rgb);
   cv::Mat warpImage(cv::Mat &img, std::vector<cv::Point> edgePoints, int maxLength);
   std::vector<cv::Point> findCornerPoints(cv::Mat &outerBox, std::vector<cv::Vec2f> lines);
-
-
+  int findMaxLength(std::vector<cv::Point> points);
 }
