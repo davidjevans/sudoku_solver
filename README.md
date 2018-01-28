@@ -5,7 +5,7 @@ I wanted the ability to solve a sudoku puzzle just by taking a picture of it.  T
 Here's a rundown of how the program identifies the puzzle, extract the digits, and eventually solves the puzzle.
 1. The program starts with a image of a sudoku puzzle.
 ![Alt text](https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/original.png){:height="50%" width="50%"}
-<!-- .element height="50%" width="50%" -->
+<img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/original.png" width = "48">
 2. The image is slightly blurred to smooth out noise in the image.
 3.
 ## How to make it work for you
