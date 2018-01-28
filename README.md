@@ -15,7 +15,7 @@ Here's a rundown of how the program identifies the puzzle, extract the digits, a
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/grid.png" width="400">
 5. With the grid extracted, we can use a contour finding library to extract the numbers out of the spaces.
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/number.png" width="200">
-6. To recognize the digits from the images, I used a k-Nearest Neighbors(kNN) algorithm.  If you've never seen kNN before check out this explanation: <https://kevinzakka.github.io/2016/07/13/k-nearest-neighbor>
+6. To recognize the digits from the images, I used a k-Nearest Neighbors(kNN) algorithm.  If you've never seen kNN before check out this explanation.
 
 7. With each digit classified, the puzzle is known.  From here, a recursive algorithm is used to solve the puzzle.  The result is the solved sudoku puzzle:
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/solution.png" width="200">
