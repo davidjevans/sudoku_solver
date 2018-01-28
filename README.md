@@ -8,6 +8,7 @@ Here's a rundown of how the program identifies the puzzle, extract the digits, a
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/original.png" width="400">
 
 2. The image is slightly blurred to smooth out noise in the image.
+<img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/blurred.png" width="400">
 3.
 ## How to make it work for you
 ### Prequisites
