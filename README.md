@@ -40,17 +40,17 @@ Switch to the "step-by-step" branch and run the executable.  It will walk you ea
 --* The number '1' must take up at least 13% of the area of a sudoku space (I know, it's a weird requirement, but it's the minimum threshold I set for identifying the number 1).
 
 2. In src/sudoku.cpp change the file load name to your image.
-'''c++
+```c++
 Mat original = imread("..images/YOUR_SUDOKU_PUZZLE.jpg", 0);
-'''
+```
 3. Change to the build directory, and run cmake.
-'''
+```
 cmake ...
-'''
+```
 4. Run the executable.
-'''
+```
 ./sudoku
-'''
+```
 
 ## Acknowledgements
 * Utkarsh Sinha from AI Shack for his help with sudoku puzzle feature extraction
