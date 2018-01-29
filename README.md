@@ -31,7 +31,7 @@ Switch to the "step-by-step" branch and run the executable.  It will walk you ea
 
 ## How to make it work for you
 ### Prequisites
-* OpenCV 2.0 Installed
+* OpenCV 2.0 installed
 * CMake Version 3.5.1 or higher installed
 ### Deployment
 1. Place the sudoku image you want to solve in the /images folder.  
