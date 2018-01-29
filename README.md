@@ -1,8 +1,8 @@
 # Computer Vision Sudoku Solver
-I wanted the ability to solve a sudoku puzzle just by taking a picture of it.  This project accomplishes that goal by using computer vision techniques to extract the puzzle from the image, and then using an algorithm to find th solution to the puzzle.
+I wanted the ability to solve a sudoku puzzle just by taking a picture of it.  This project accomplishes that goal by using computer vision techniques to extract the puzzle from the image and solve the puzzle using a recursive algorithm.
 
 ## How it works
-Here's a rundown of how the program identifies the puzzle, extract the digits, and eventually solves the puzzle.
+Here's a rundown of how the program identifies the puzzle, extracts the digits, and eventually solves the puzzle.
 1. The program starts with a image of a sudoku puzzle.
 
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/original.png" width="400">
@@ -19,7 +19,7 @@ Here's a rundown of how the program identifies the puzzle, extract the digits, a
 5. With the grid extracted, we can use a contour finding library to extract the numbers out of the spaces.
 <img src="https://github.com/davidjevans/sudoku_solver/blob/master/explanation_images/number.png" width="200">
 
-6. To recognize the digits from the images, I used a k-Nearest Neighbors(kNN) algorithm.
+6. To recognize the digits from the images, I used the k-Nearest Neighbors(kNN) algorithm.
 
 [If you've never seen kNN before check out this explanation.](https://kevinzakka.github.io/2016/07/13/k-nearest-neighbor)
 
