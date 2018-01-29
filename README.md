@@ -45,7 +45,7 @@ Mat original = imread("..images/YOUR_SUDOKU_PUZZLE.jpg", 0);
 ```
 3. Change to the build directory, and run cmake.
 ```
-cmake ...
+cmake ..
 ```
 4. Run the executable.
 ```
