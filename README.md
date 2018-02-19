@@ -34,8 +34,8 @@ Switch to the "step-by-step" branch and run the executable.  It will walk you ea
 * OpenCV 2.0 installed
 * CMake Version 3.5.1 or higher installed
 ### Deployment
-1. Place the sudoku image you want to solve in the /images folder.  
-  Assumptions about puzzle image:
+1. Place the sudoku image you want to solve in the /images folder.
+*Assumptions about puzzle image:*
   * The biggest bounding box in the image is the puzzle
   * The number '1' must take up at least 13% of the area of a sudoku space (I know, it's a weird requirement, but it's the minimum threshold I set for identifying the number 1).
 
