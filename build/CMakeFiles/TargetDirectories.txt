@@ -1,3 +1,0 @@
-/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles/edit_cache.dir
-/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles/rebuild_cache.dir
-/home/zeumer/Documents/fun/opencv/sudoku/build/CMakeFiles/sudoku.dir
